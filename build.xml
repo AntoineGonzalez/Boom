@@ -1,0 +1,42 @@
+
+<project default="run">
+
+<target name="clean">
+	<delete dir="dist"/>
+</target>
+
+
+<target name="compile" depends="clean">
+	<mkdir dir="bin"/>
+	<javac srcdir="src" destdir="bin">   
+    <classpath>
+        <pathelement path="libs/json-simple-1.1.jar"/>
+    </classpath>
+</javac>
+</target>
+
+
+<target name="jar" depends="compile">
+	<mkdir dir="dist"/>
+	<jar destfile="dist/Boom.jar" basedir="bin">
+		<zipgroupfileset dir="libs" includes="json-simple-1.1.jar" />
+		<manifest>
+			<attribute name="DependencyFinder" value="main"/>
+			<attribute name="Main-Class" value="boom.Boom"/>
+		</manifest>
+	</jar>
+	
+</target>
+
+
+<target name="run" depends="jar">
+	<java jar="dist/Boom.jar" fork="true">
+		<arg value="parser"/>
+	</java>
+</target>
+
+  <target name="javadoc">
+        <javadoc access="public" author="true" classpath="libs/json-simple-1.1.jar:dist/Boom.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="controllers,models.factories,models.element.explosives,boom,models.element,models.utils,models.GameState,models.strategies.mapstrat,views,models.element.fighters,models.strategies.fighterstrat" source="10" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+
+</project>

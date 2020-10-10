@@ -1,0 +1,37 @@
+{
+	"Fighter":{
+		"energy":{
+			"Gardian" : "100", 
+			"Shooter" : "80",
+			"Bomber" : "60"
+		},
+		"nb_mine":{
+			"Gardian" : "2", 
+			"Shooter" : "2",
+			"Bomber" : "4"
+		},
+		"nb_bomb":{
+			"Gardian" : "2", 
+			"Shooter" : "2",
+			"Bomber" : "4"		},
+		"nb_shot":{
+			"Gardian" : "2", 
+			"Shooter" : "4",
+			"Bomber" : "2"
+		}
+	},
+	
+	"MapStrategy":{
+		"EnergyStrat": true,
+		"FightersInCorner": true,
+		"FightersInMidlle": false,
+		"WallStrat":true
+	},
+	
+	"FighterStrategy":{
+		"DefensiveStrategy": true,
+		"CustomStrategy": true,
+		"BalancedStrategy": true,
+		"AgressiveStrategy": true
+	}
+}
